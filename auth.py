@@ -1,7 +1,7 @@
 class auth:
 
 	def __init__ (self):
-		consumer_key=''
-		consumer_secret=''
-		access_token_key=''
-		access_token_secret=''
+		self.consumer_key=''
+		self.consumer_secret=''
+		self.access_token_key=''
+		self.access_token_secret=''
