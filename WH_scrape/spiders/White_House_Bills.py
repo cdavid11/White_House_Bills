@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 import scrapy
 from bs4 import BeautifulSoup
+from pymongo import MongoClient
 import twitter
 from auth import auth
 
@@ -8,6 +9,9 @@ from auth import auth
 class Bill_Spider (scrapy.Spider):
 
                 name = "White_House_Bills"
+                connection = MongoClient()
+                db = connection['Bills']
+                bills = db.bills
 
                 def start_requests (self):
 
