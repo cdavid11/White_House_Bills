@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 import scrapy
 from bs4 import BeautifulSoup
 import twitter
+from auth import auth
 
 
 class Bill_Spider (scrapy.Spider):
@@ -24,14 +25,11 @@ class Bill_Spider (scrapy.Spider):
 		print(name)
 		print(link)
 
-		to_tweet = "#DonaldTrump has signed: " + name + "\nhttps://www.whitehouse.gov" + link
+		to_tweet = "#DonaldTrump has signed: seeing what sort of riddiculosueresfsdfsefes message that I'll get for having a tweet that is way way way wayw ay awy w too long yesah" + name + "\nhttps://www.whitehouse.gov" + link
 
-		consumer_key='bx34EHcGqcKr8ZY2KBuS8hamL'
-		consumer_secret='POqFlrQmur0fVtsZDIN2Aji79y1p55FNXB9yXvtZrynSzj4IW5'
-		access_token_key='884782153904648192-nqr44xrASvX3Jg3q79DwMxEaOLcXR8k'
-		access_token_secret='oGxxJFHmxOXZx5E8vvSpkwILCUFpILv5GuA9MKh3OTc9u'
+		a = auth()
 
-		api = twitter.Api(consumer_key, consumer_secret, access_token_key, access_token_secret)
+		api = twitter.Api(a.consumer_key, a.consumer_secret, a.access_token_key, a.access_token_secret)
 		status = api.PostUpdate(to_tweet)
 		print(status.text)
 
