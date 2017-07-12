@@ -23,21 +23,24 @@ class Bill_Spider (scrapy.Spider):
                 def parse (self, response):
 
                     sorv = response.meta.get('sorv')
-                    print("SORV: " + sorv)
 
                     soup = BeautifulSoup(response.body, 'html.parser')
                     panel = soup.find("div", {"class":"view-content"})
                     if (panel == None):
-                        print("Nothing here")
                         return
                     bill = panel.find("div", {"class":"views-row views-row-1 views-row-odd views-row-first"})
+                    date = bill.find("span", {"class":"date-display-single"})['content']
 
                                 
                     name = bill.a.text
                     link = "https://www.whitehouse.gov" + bill.a['href']
-                    print(name)
-                    print(link)
 
+
+                    if (self.bills.find_one({"name": name}) != None):
+                        return
+
+                    bill = {'name': name, 'date': date, 'url' : link, 'status': sorv}
+                    self.bills.insert(bill)
 
                     if (len(name) > 91):
                         diff = len(name) - 91
@@ -55,5 +58,4 @@ class Bill_Spider (scrapy.Spider):
                         status = api.PostUpdate(to_tweet)
                         print(status.text)
                     except:
-                        print("Tweeting Error")
                         return
