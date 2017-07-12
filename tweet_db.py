@@ -12,7 +12,7 @@ a = auth()
 all_bills = bills.find().sort('date', pymongo.ASCENDING)
 for bill in all_bills:
 	name = bill['name']
-	url = bill['url'] + '/'
+	url = bill['url']
 	if (len(name) > 91):
 		name = name[0:88]
 		name = name + "..."
