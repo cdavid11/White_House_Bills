@@ -6,7 +6,7 @@ import twitter
 
 class Bill_Spider (scrapy.Spider):
 
-	name = "Bills_Passed_Spider"
+	name = "White_House_Bills"
 
 	def start_requests (self):
 
