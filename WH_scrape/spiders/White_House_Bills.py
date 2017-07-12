@@ -45,8 +45,7 @@ class Bill_Spider (scrapy.Spider):
                     self.bills.insert(bill)
 
                     if (len(name) > 91):
-                        diff = len(name) - 91
-                        name = name[0:diff-3]
+                        name = name[0:88]
                         name = name + "..."
                     
                     if (sorv == "s"):         
