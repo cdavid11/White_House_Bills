@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from __future__ import unicode_literals
 import scrapy
 from bs4 import BeautifulSoup
@@ -37,7 +38,8 @@ class Bill_Spider (scrapy.Spider):
 
 
                     if (self.bills.find_one({"name": name}) != None):
-                        return
+                        print("Found entry in DB")
+			return
 
                     bill = {'name': name, 'date': date, 'url' : link, 'status': sorv}
                     self.bills.insert(bill)
