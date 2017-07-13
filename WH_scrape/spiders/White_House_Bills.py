@@ -49,9 +49,9 @@ class Bill_Spider (scrapy.Spider):
                         name = name + "..."
                     
                     if (sorv == "s"):         
-                        to_tweet = "@POTUS has signed: " + name +link + "\n#Trump"
+                        to_tweet = "#DonaldTrump has signed: " + name + link
                     else:
-                        to_tweet = "@POTUS has vetoed: " + name +link + "\n#Trump"
+                        to_tweet = "#DonaldTrump has vetoed: " + name +link
                     a = auth()
 
                     try:

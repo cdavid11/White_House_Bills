@@ -19,7 +19,7 @@ for bill in all_bills:
 	if (len(name) > 91):
 		name = name[0:88]
 		name = name + "..."
-	to_tweet = "@POTUS has signed: " + name + url + "\n#Trump"
+	to_tweet = to_tweet = "#DonaldTrump has signed: " + name + url
 	print(to_tweet)
 	print("Length: " + str((len(to_tweet) - len(url) + 23)))
 	
