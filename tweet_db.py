@@ -1,3 +1,6 @@
+#This is just a quick script that will tweet every single item in the database currently. It's a one off script
+# that shouldn't need to be used again as the bot is run live.
+
 import twitter
 import pymongo
 from auth import auth
