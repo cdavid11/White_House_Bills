@@ -53,17 +53,17 @@ class Bill_Spider (scrapy.Spider):
 					self.bills.insert(bill)
 
 					if (len(name) > 91):
-						name = name[0:88]
+						name = name[0:87]
 						name = name + "..."
 					
 					if (sorv == "s"):         
-						to_tweet = "Donald Trump has signed: " + name + link
+						to_tweet = "Donald Trump has signed: " + name + " " + link
 					elif (sorv == "e"):
-						to_tweet = "Donald Trump has issued: " + name + link
+						to_tweet = "Donald Trump has issued: " + name + " " + link
 					elif (sorv == "p"):
-						to_tweet = "Donald Trump has issued: " + name + link
+						to_tweet = "Donald Trump has issued: " + name + " " + link
 					else:
-						to_tweet = "Donald Trump has vetoed: " + name +link
+						to_tweet = "Donald Trump has vetoed: " + name + " " + link
 
 					print("\n\n\nDate: " + date + " To tweet: " + to_tweet + "\n\n\n")
 					a = auth()
